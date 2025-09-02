@@ -17,7 +17,9 @@ onde:
 
 src:
 >Main.java: a classe principal, onde é executado o ficheiro.
+
 >Usuario.java: aqui são definidos os métodos relacionados ao "usuário" em si, getters e setters.
+
 >Ficheiro.java: aqui são definidos os métodos para armazenar e ler a informação.
 
 user_information:
