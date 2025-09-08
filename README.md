@@ -26,5 +26,5 @@ user_information:
 >dados.txt: na versão atual, é onde são armazenadas as informações das pessoas.
 
 Melhorias para a próxima versão:
-O que deve ser melhorado na próxima versão é a forma de armazenar informação, que vai passar a ser
-feita a partir de objetos na classe Pessoa, utilizando mais eficientemente a orientação a objeto.
+O que deve ser melhorado na próxima versão é a forma de armazenar informação, que deve passar a ser
+feita de forma mais eficiente, e a adição das opções de alterara a informação armazenada e exclui-la se desejado.
