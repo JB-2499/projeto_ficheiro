@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String arquivo = "dados.txt";
+        String arquivo = "user_information/dados.csv";
         Scanner sc = new Scanner(System.in);
 
         Ficheiro ficheiro = new Ficheiro();
