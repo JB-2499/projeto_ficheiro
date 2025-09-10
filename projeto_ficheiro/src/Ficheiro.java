@@ -5,29 +5,31 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Ficheiro {
-    public String[] lerAtributos(Scanner sc) {
-        System.out.println("Digite o nome do usuario: ");
-        String nome = sc.nextLine();
-
-        System.out.println("Digite o email do usuario: ");
-        String email = sc.nextLine();
-
-        System.out.println("Digite a idade do usuario: ");
-        String idade = sc.nextLine();
-
-        String[] dados = {nome, email, idade};
-
-        return dados;
-    }
-
     public void criarUsuario(Scanner sc, String arquivo) {
-        String[] dados = lerAtributos(sc);
+        Usuario usuario = new Usuario();
+        String[] dados = lerAtributos(sc, usuario, arquivo);
+
+        boolean existe = new java.io.File(arquivo).exists();
 
         try (FileWriter fw = new FileWriter(arquivo, true)) {
-            fw.write("{Nome: " + dados[0] + "; Idade: " + dados[2] + "; Email: " + dados[1] + "}\n");
+            if (!existe) {
+                fw.write("Nome,Email,Idade\n");
+            }
+
+            fw.write(dados[0] + "," + dados[1] + "," + dados[2] + "\n");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public String[] lerAtributos(Scanner sc, Usuario usuario, String arquivo) {
+        usuario.setNome(sc);
+
+        usuario.setEmail(sc, arquivo);
+
+        usuario.setIdade(sc);
+
+        return new String[] {usuario.getNome(), usuario.getEmail(), Integer.toString(usuario.getIdade())};
     }
 
     public void ler(String arquivo) {
@@ -35,7 +37,15 @@ public class Ficheiro {
             String linha;
 
             while ((linha = br.readLine()) != null) {
-                System.out.println(linha);
+                if (linha.trim().isEmpty()) {
+                    continue;
+                }
+
+                String[] dados = linha.split(",");
+
+                if (!linha.startsWith("Nome") && dados.length == 3) {
+                    System.out.println("\nNome: " + dados[0] +  ", Email:" + dados[1] + ", Idade:" + dados[2]);
+                }
             }
         } catch (IOException e) {
             System.out.println("Erro ao ler o arquivo");
