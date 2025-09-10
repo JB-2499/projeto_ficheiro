@@ -1,4 +1,8 @@
-versão 0.1;
+>versão do programa: 0.1
+
+>versão Java: JDK 17
+
+
 Atualmente o projeto é organizado da seguinte forma:
 
 projeto_ficheiro/
@@ -21,6 +25,7 @@ src:
 
 user_information:
 >dados.txt: na versão atual, é onde são armazenadas as informações das pessoas.
+
 
 Melhorias para a próxima versão:
 O que deve ser melhorado na próxima versão é a forma de armazenar informação, que vai passar a ser
