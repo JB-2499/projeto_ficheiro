@@ -29,10 +29,11 @@ src:
 
 >Ficheiro.java: aqui são definidos os métodos para armazenar e ler a informação.
 
->user_information:
+user_information:
 >dados.txt: na versão atual, é onde são armazenadas as informações das pessoas.
 
->log: aqui ficam armazenadas as versões anteriores.
+log:
+>aqui ficam armazenadas as versões anteriores.
 
 Melhorias para a próxima versão:
 O que deve ser melhorado na próxima versão é a forma de armazenar informação, que deve passar a ser
