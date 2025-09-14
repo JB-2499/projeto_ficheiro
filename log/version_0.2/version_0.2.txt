@@ -1,0 +1,54 @@
+# projeto_ficheiro
+Neste projeto estou programando um "ficheiro" para iniciar meus estudos em Java. O objetivo é criar um código capaz de registrar pessoas, ler as informações registradas, alterar estas informações e exclui-las, ou seja, as funções mais básicas deste tipo de aplicação.
+
+>Versão Java: JDK 17
+
+>versão do programa: 0.2
+
+
+Atualmente o projeto é organizado da seguinte forma:
+
+>projeto_ficheiro/
+
+>|--src/
+
+>|  |--Usuario.java
+
+>|  |--Ficheiro.java
+
+>|--user_information/
+
+>|  |--dados.csv
+
+>|--log/
+
+>|__README.md
+
+onde:
+
+src:
+>Main.java: a classe principal, onde é executado o ficheiro.
+
+>Usuario.java: aqui são definidos os métodos relacionados ao "usuário" em si, getters e setters.
+
+>Ficheiro.java: aqui são definidos os métodos para armazenar e ler a informação.
+
+user_information:
+>dados.csv: na versão atual, é onde são armazenadas as informações das pessoas.
+
+log:
+>aqui ficam armazenadas as versões anteriores.
+
+
+Alterações em relação à versão anterior:
+>Alteração do formato do arquivo utilizado armazenamento de dados de .txt para .csv pelo ultimo ser mais adequado para isso.
+
+>Adição de validação aos métodos de entrada e tratamento e erros.
+
+>Verificação ao registrar uma pessoa, de forma que não seja possível utilizar um email já registrado.
+
+
+Melhorias planejadas para a próxima versão:
+>Adição de funções para alterar e remover pessoas do registro.
+
+>Melhorias menores e correções de bugs.
