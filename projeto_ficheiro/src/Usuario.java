@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Usuario {
@@ -16,6 +17,7 @@ public class Usuario {
         while (true) {
             System.out.println("Digite o nome: ");
             String novo_nome = sc.nextLine();
+
             if (novo_nome != null && !novo_nome.isEmpty()) {
                 this.nome = novo_nome;
                 break;
@@ -67,7 +69,7 @@ public class Usuario {
             } else if (novo_email == null || novo_email.isEmpty()) {
                 System.out.println("Erro! o email nao pode estar em branco!");
             } else {
-                System.out.println("Erro! deve ser digitado apenas o nome do email, o resto é adicionado automaticamente.");
+                System.out.println("Digite apenas a primeira parte do email (sem o @email.com).");
             }
         }
     }
@@ -78,15 +80,20 @@ public class Usuario {
 
     public void setIdade(Scanner sc) {
         while (true) {
-            System.out.println("Digite a idade: ");
-            int novo_idade = sc.nextInt();
-            sc.nextLine();
+            try {
+                System.out.println("Digite a idade: ");
+                int novo_idade = sc.nextInt();
+                sc.nextLine();
 
-            if (novo_idade >= 0) {
-                this.idade = novo_idade;
-                break;
-            } else {
-                System.out.println("Erro! não é possível ter uma idade negativa");
+                if (novo_idade >= 0 &&  novo_idade <= 130) {
+                    this.idade = novo_idade;
+                    break;
+                } else {
+                    System.out.println("Erro! não é possível ter uma idade negativa");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Erro!!! Digite um valor numérico!");
+                sc.nextLine();
             }
         }
     }
