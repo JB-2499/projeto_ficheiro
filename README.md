@@ -3,7 +3,7 @@ Neste projeto estou programando um "ficheiro" para iniciar meus estudos em Java.
 
 >Versão Java: JDK 17
 
->versão do programa: 0.2
+>versão do programa: 0.3
 
 
 Atualmente o projeto é organizado da seguinte forma:
@@ -41,14 +41,14 @@ log:
 
 
 Alterações em relação à versão anterior:
->Alteração do formato do arquivo utilizado armazenamento de dados de .txt para .csv pelo ultimo ser mais adequado para isso.
+>Criação de um método para alterar informações registradas ou excluílas.
 
->Adição de validação aos métodos de entrada e tratamento e erros.
+>Adição de validação na classe Main.
 
->Verificação ao registrar uma pessoa, de forma que não seja possível utilizar um email já registrado.
+>Correção de erros menores.
 
 
 Melhorias planejadas para a próxima versão:
->Adição de funções para alterar e remover pessoas do registro.
+>Melhorar a interface e experiência do usuário.
 
 >Melhorias menores e correções de bugs.
