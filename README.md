@@ -5,6 +5,7 @@ O presente projeto foi realizado com o intuito de desenvolver minhas habilidades
 >Após efetivamente desenvolver as habilidades desejadas, decidi encerrar este projeto, que foi desenvolvido puramente com o uso da linguagem Java, e iniciar uma nova versão com o uso do Spring Boot,
 >para iniciar uma nova fase etapa em meu desenvolvimento. O novo projeto está disponível no repositório a seguir:
 
+
 #Versão Java: JDK 17
 
 #versão do programa: 0.3
