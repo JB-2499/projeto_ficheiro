@@ -1,5 +1,9 @@
 # projeto_ficheiro
-Neste projeto estou programando um "ficheiro" para iniciar meus estudos em Java. O objetivo é criar um código capaz de registrar pessoas, ler as informações registradas, alterar estas informações e exclui-las, ou seja, as funções mais básicas deste tipo de aplicação.
+O presente projeto foi realizado com o intuito de desenvolver minhas habilidades com a linguagem de programação Java. Para este propósito, desenvolvi um sistema basico que contém as funções de registrar pessoas, ler as informações registradas, alterar estas informações e exclui-las, ou seja, as funções mais básicas deste tipo de aplicação.
+
+#Importânte!
+>Após efetivamente desenvolver as habilidades desejadas, decidi encerrar este projeto, que foi desenvolvido puramente com o uso da linguagem Java, e iniciar uma nova versão com o uso do Spring Boot,
+>para iniciar uma nova fase etapa em meu desenvolvimento. O novo projeto está disponível no repositório a seguir:
 
 >Versão Java: JDK 17
 
