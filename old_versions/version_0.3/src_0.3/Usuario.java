@@ -43,7 +43,7 @@ public class Usuario {
 
                 String[] dados = linha.split(",");
 
-                if (dados[1].equalsIgnoreCase(email)) {
+                if (dados[1].equalsIgnoreCase(email + "@email.com")) {
                     existe = true;
                     break;
                 }
@@ -59,17 +59,17 @@ public class Usuario {
             System.out.println("Digite o email: ");
             String novo_email = sc.nextLine();
 
-            if (novo_email != null && !novo_email.isEmpty()) {
-                if (emailExiste(arquivo, novo_email)) {
-                    System.out.println("Erro!!! O email digitado já existe.");
-                } else if (!novo_email.contains("@")) {
-                    System.out.println("Erro! Digite um email válido.");
-                } else {
-                    this.email = (novo_email);
+            if (novo_email != null && !novo_email.isEmpty() && !novo_email.contains("@")) {
+                if (!emailExiste(arquivo, novo_email)) {
+                    this.email = (novo_email + "@email.com");
                     break;
+                } else {
+                    System.out.println("Erro!!! O email digitado já existe!");
                 }
+            } else if (novo_email == null || novo_email.isEmpty()) {
+                System.out.println("Erro! o email nao pode estar em branco!");
             } else {
-                System.out.println("Erro! O email não pode estar em branco.");
+                System.out.println("Digite apenas a primeira parte do email (sem o @email.com).");
             }
         }
     }

@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String arquivo = "user_information/dados.csv";
+        String arquivo = "projeto_ficheiro/user_information/dados.csv";
         Scanner sc = new Scanner(System.in);
 
         Usuario usuario = new Usuario();

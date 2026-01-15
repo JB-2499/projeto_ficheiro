@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Usuario {
@@ -17,7 +16,6 @@ public class Usuario {
         while (true) {
             System.out.println("Digite o nome: ");
             String novo_nome = sc.nextLine();
-
             if (novo_nome != null && !novo_nome.isEmpty()) {
                 this.nome = novo_nome;
                 break;
@@ -43,7 +41,7 @@ public class Usuario {
 
                 String[] dados = linha.split(",");
 
-                if (dados[1].equalsIgnoreCase(email)) {
+                if (dados[1].equalsIgnoreCase(email + "@email.com")) {
                     existe = true;
                     break;
                 }
@@ -59,17 +57,17 @@ public class Usuario {
             System.out.println("Digite o email: ");
             String novo_email = sc.nextLine();
 
-            if (novo_email != null && !novo_email.isEmpty()) {
-                if (emailExiste(arquivo, novo_email)) {
-                    System.out.println("Erro!!! O email digitado já existe.");
-                } else if (!novo_email.contains("@")) {
-                    System.out.println("Erro! Digite um email válido.");
-                } else {
-                    this.email = (novo_email);
+            if (novo_email != null && !novo_email.isEmpty() && !novo_email.contains("@")) {
+                if (!emailExiste(arquivo, novo_email)) {
+                    this.email = (novo_email + "@email.com");
                     break;
+                } else {
+                    System.out.println("Erro!!! O email digitado já existe!");
                 }
+            } else if (novo_email == null || novo_email.isEmpty()) {
+                System.out.println("Erro! o email nao pode estar em branco!");
             } else {
-                System.out.println("Erro! O email não pode estar em branco.");
+                System.out.println("Erro! deve ser digitado apenas o nome do email, o resto é adicionado automaticamente.");
             }
         }
     }
@@ -80,20 +78,15 @@ public class Usuario {
 
     public void setIdade(Scanner sc) {
         while (true) {
-            try {
-                System.out.println("Digite a idade: ");
-                int novo_idade = sc.nextInt();
-                sc.nextLine();
+            System.out.println("Digite a idade: ");
+            int novo_idade = sc.nextInt();
+            sc.nextLine();
 
-                if (novo_idade >= 0 &&  novo_idade <= 130) {
-                    this.idade = novo_idade;
-                    break;
-                } else {
-                    System.out.println("Erro! não é possível ter uma idade negativa");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Erro!!! Digite um valor numérico!");
-                sc.nextLine();
+            if (novo_idade >= 0) {
+                this.idade = novo_idade;
+                break;
+            } else {
+                System.out.println("Erro! não é possível ter uma idade negativa");
             }
         }
     }
