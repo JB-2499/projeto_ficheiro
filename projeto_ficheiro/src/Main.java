@@ -28,9 +28,9 @@ public class Main {
                 } else if (opcao == 2) {
                     ficheiro.ler(arquivo);
                 } else if (opcao == 3) {
-                    ficheiro.alterarUsuario(sc, arquivo, usuario, 1);
+                    ficheiro.alterarUsuario(sc, arquivo, usuario,1,true);
                 } else if(opcao == 4) {
-                    ficheiro.alterarUsuario(sc, arquivo, usuario, 2);
+                    ficheiro.alterarUsuario(sc, arquivo, usuario,2, false);
                 } else if (opcao == 5) {
                     System.out.println("Programa finalizado com sucesso.");
                     break;

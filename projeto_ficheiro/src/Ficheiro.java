@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Ficheiro {
     public void criarUsuario(Scanner sc, String arquivo, Usuario usuario) {
-        String[] dados = lerAtributos(sc, usuario, arquivo);
+        String[] dados = lerAtributos(sc, usuario, arquivo, false, "email");
 
         boolean existe = new java.io.File(arquivo).exists();
 
@@ -20,7 +20,7 @@ public class Ficheiro {
         }
     }
 
-    public void alterarUsuario(Scanner sc, String arquivo, Usuario usuario, int operacao) {
+    public void alterarUsuario(Scanner sc, String arquivo, Usuario usuario, int operacao, boolean mudar) {
         System.out.println("Digite o email completo do usuário a ser selecionado: ");
         String email = sc.nextLine().toLowerCase();
 
@@ -42,13 +42,13 @@ public class Ficheiro {
 
                 String[] dados = linha.split(",");
 
-                if (dados.length > 1 && (dados[1].equalsIgnoreCase(email) || (dados[1] + "@email.com").equalsIgnoreCase(email))) {
+                if (dados.length > 1 && (dados[1].equalsIgnoreCase(email))) {
                     if (operacao == 1) {
                         usuarioEncontrado = true;
 
                         System.out.println("Usuário encontrado! Digite os novos dados:");
 
-                        String[] dados_atualizados = lerAtributos(sc, usuario, arquivo);
+                        String[] dados_atualizados = lerAtributos(sc, usuario, arquivo, mudar, email);
 
                         String linha_atualizada = String.join(",", dados_atualizados);
                         linhasAtualizadas.add(linha_atualizada);
@@ -79,10 +79,14 @@ public class Ficheiro {
         }
     }
 
-    public String[] lerAtributos(Scanner sc, Usuario usuario, String arquivo) {
+    public String[] lerAtributos(Scanner sc, Usuario usuario, String arquivo, boolean mudar, String email) {
         usuario.setNome(sc);
 
-        usuario.setEmail(sc, arquivo);
+        if (!mudar) {
+            usuario.setEmail(sc, arquivo);
+        } else {
+            usuario.setEmail(email);
+        }
 
         usuario.setIdade(sc);
 
