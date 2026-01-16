@@ -46,12 +46,18 @@ public class Ficheiro {
                     if (operacao == 1) {
                         usuarioEncontrado = true;
 
-                        System.out.println("Usuário encontrado! Digite os novos dados:");
+                        System.out.println("Usuário encontrado! Deseja alterar o email?\n(Digite apenas s ou n)");
+                        String simNao = sc.nextLine();
 
-                        String[] dados_atualizados = lerAtributos(sc, usuario, arquivo, mudar, email);
-
-                        String linha_atualizada = String.join(",", dados_atualizados);
-                        linhasAtualizadas.add(linha_atualizada);
+                        if (simNao.equalsIgnoreCase("n")) {
+                            String[] dados_atualizados = lerAtributos(sc, usuario, arquivo, true, email);
+                            String linha_atualizada = String.join(",", dados_atualizados);
+                            linhasAtualizadas.add(linha_atualizada);
+                        } else {
+                            String[] dados_atualizados = lerAtributos(sc, usuario, arquivo, false, email);
+                            String linha_atualizada = String.join(",", dados_atualizados);
+                            linhasAtualizadas.add(linha_atualizada);
+                        }
                     } else if (operacao == 2) {
                         usuarioEncontrado = true;
                         System.out.println("Usuário removido com sucesso!");
