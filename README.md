@@ -1,59 +1,52 @@
 # projeto_ficheiro
 O presente projeto foi realizado com o intuito de desenvolver minhas habilidades com a linguagem de programação Java. Para este propósito, desenvolvi um sistema basico que contém as funções de registrar pessoas, ler as informações registradas, alterar estas informações e exclui-las, ou seja, as funções mais básicas deste tipo de aplicação.
 
-#Importânte!
->Após efetivamente desenvolver as habilidades desejadas, decidi encerrar este projeto, que foi desenvolvido puramente com o uso da linguagem Java, e iniciar uma nova versão com o uso do Spring Boot,
->para iniciar uma nova fase etapa em meu desenvolvimento. O novo projeto está disponível no repositório a seguir: "https://github.com/JB-2499/novo_ficheiro"
+> Versão Java: JDK 17
 
+> versão atual do programa: 1.0
 
-#Versão Java: JDK 17
+# Importânte!
+Após a implementação de todas as funcionalidades de CRUD estipuladas, o projeto foi dado como encerrado. Entretanto, é posspivel que seja reaberto seu desenvolvimento futuramente, para
+que sejam adicionadas novas funcionalidades e/ou aprimorar as já existentes. Para dar continuidade ao meu treinamento em Java, decidi iniciar uma sequencia deste projeto, que deve
+executar as mesmas funcões do atual, mas sendo desenvolvido com o uso do Spring Boot. O novo projeto está disponível no repositório a seguir: "https://github.com/JB-2499/novo_ficheiro".
 
-#versão do programa: 0.3
+# Organização do projeto
+|projeto_ficheiro/
 
+|--src/
 
-Atualmente o projeto é organizado da seguinte forma:
+|  |--Usuario.java
 
->projeto_ficheiro/
+|  |--Ficheiro.java
 
->|--src/
+|--user_information/
 
->|  |--Usuario.java
+|  |--dados.csv
 
->|  |--Ficheiro.java
+|--old_versions/
 
->|--user_information/
-
->|  |--dados.csv
-
->|--log/
-
->|__README.md
+|__README.md
 
 onde:
 
 src:
->Main.java: a classe principal, onde é executado o ficheiro.
+>Main: a classe principal, onde é executado o ficheiro.
 
->Usuario.java: aqui são definidos os métodos relacionados ao "usuário" em si, getters e setters.
+>Usuario: aqui são definidos os métodos relacionados ao "usuário" em si, getters e setters.
 
->Ficheiro.java: aqui são definidos os métodos para armazenar e ler a informação.
+>Ficheiro: aqui são definidos os métodos para armazenar e ler a informação.
 
 user_information:
 >dados.csv: na versão atual, é onde são armazenadas as informações das pessoas.
 
-log:
+old_versions:
 >aqui ficam armazenadas as versões anteriores.
 
-
-Alterações em relação à versão anterior:
->Criação de um método para alterar informações registradas ou excluílas.
-
->Adição de validação na classe Main.
-
->Correção de erros menores.
+# Alterações em relação à versão anterior:
+Correção dos bugs que impediam o cadastro e a alteração dos dados do usuário.
 
 
-Melhorias planejadas para a próxima versão:
->Melhorar a interface e experiência do usuário.
+# Melhorias planejadas para uma eventual reabertura do projeto:
+Criação de uma interface visual para o uso do programa.
 
->Melhorias menores e correções de bugs.
+Alteração do formato de arquivo utilizado para armazenamento de dados, de CSV para JSON.
