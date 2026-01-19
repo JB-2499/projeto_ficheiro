@@ -8,7 +8,7 @@ O presente projeto foi realizado com o intuito de desenvolver minhas habilidades
 <br><br>
 
 # ⚠️Importânte!
-Após a implementação de todas as funcionalidades de CRUD estipuladas, o projeto foi dado como encerrado. Entretanto, é posspivel que seja reaberto seu desenvolvimento futuramente, para
+Após a implementação de todas as funcionalidades de CRUD estipuladas, o projeto foi dado como encerrado. Entretanto, é posspivel que seu desenvolvimento seja reaberto futuramente, para
 que sejam adicionadas novas funcionalidades e/ou aprimorar as já existentes. Para dar continuidade ao meu treinamento em Java, decidi iniciar uma sequencia deste projeto, que deve
 executar as mesmas funcões do atual, mas sendo desenvolvido com o uso do Spring Boot. O novo projeto está disponível no repositório a seguir: "https://github.com/JB-2499/novo_ficheiro".
 
