@@ -22,6 +22,8 @@ README.md
 
 src/
 
+|--Main.java
+
 |--Usuario.java
 
 |--Ficheiro.java
