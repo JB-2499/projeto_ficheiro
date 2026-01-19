@@ -17,19 +17,19 @@ executar as mesmas funcões do atual, mas sendo desenvolvido com o uso do Spring
 # 🗂️Organização do projeto
 |projeto_ficheiro/
 
---src/
+README.md
+
+src/
 
 --Usuario.java
 
 --Ficheiro.java
 
---user_information/
+user_information/
 
 --dados.csv
 
---old_versions/
-
-__README.md
+old_versions/
 
 onde:
 
