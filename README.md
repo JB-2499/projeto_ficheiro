@@ -22,7 +22,7 @@ README.md
 
 src/
 
-|--Main.java
+|--Terminal.java
 
 |--Usuario.java
 
@@ -38,7 +38,7 @@ old_versions/
 onde:
 
 src:
->Main: a classe principal, onde é executado o ficheiro.
+>Terminal: a classe principal, onde é executado o ficheiro.
 
 >Usuario: aqui são definidos os métodos relacionados ao "usuário" em si, getters e setters.
 

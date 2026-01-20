@@ -27,7 +27,7 @@ Atualmente o projeto é organizado da seguinte forma:
 onde:
 
 src:
->Main.java: a classe principal, onde é executado o ficheiro.
+>Terminal.java: a classe principal, onde é executado o ficheiro.
 
 >Usuario.java: aqui são definidos os métodos relacionados ao "usuário" em si, getters e setters.
 
