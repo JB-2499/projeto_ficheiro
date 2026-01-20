@@ -15,40 +15,59 @@ executar as mesmas funcões do atual, mas sendo desenvolvido com o uso do Spring
 <br><br>
 
 # 🗂️Organização do projeto
+<br><br>
 |projeto_ficheiro/
-
 
 README.md
 
-src/
+### src/
 
-|--Terminal.java
+|--Main.java
 
 |--Usuario.java
 
 |--Ficheiro.java
 
-user_information/
+|--Terminal.java
+
+
+|--gui/
+
+||--Janela.Java
+
+||--logo.png
+
+
+### user_information/
 
 |--dados.csv
 
-old_versions/
 
+### old_versions/
 
+<br><br>
 onde:
 
-src:
->Terminal: a classe principal, onde é executado o ficheiro.
+
+### src:
+>Main: a classe principal, onde é executado o ficheiro.
 
 >Usuario: aqui são definidos os métodos relacionados ao "usuário" em si, getters e setters.
 
 >Ficheiro: aqui são definidos os métodos para armazenar e ler a informação.
 
-user_information:
->dados.csv: na versão atual, é onde são armazenadas as informações das pessoas.
+>Terminal: Versão alternativa da Main, onde a interação com o programa é feita por meio do terminal.
 
-old_versions:
->aqui ficam armazenadas as versões anteriores.
+### src/gui:
+>Janela: aqui é definida a base da Janela que serve como interface gráfica.
+
+>Logo: imagem que serve como icone da janela.
+
+### user_information:
+>dados.csv: é onde são armazenadas as informações das pessoas.
+
+### old_versions:
+>aqui ficam armazenadas as versões anteriores do programa.
 
 <br><br>
 
