@@ -24,36 +24,39 @@ public class Janela extends JFrame{
 
         this.getContentPane().setBackground(Color.lightGray);
 
-        this.setLayout(null);
+        this.setLayout(new BorderLayout());
 
         //Imagem
         listaImagens = getListaImagens("projeto_ficheiro/src/gui/imagens");
 
         //Label
         JLabel rotulo = new JLabel("Isso é um teste.");
+
+        rotulo.setLayout(new BorderLayout());
         rotulo.setIcon(listaImagens.get(indiceAtual));
 
         rotulo.setVerticalTextPosition(JLabel.TOP);
         rotulo.setHorizontalTextPosition(JLabel.CENTER);
-        rotulo.setForeground(Color.DARK_GRAY);
+        rotulo.setForeground(Color.darkGray);
         rotulo.setIconTextGap(5);
 
-        rotulo.setBounds(60, 20, listaImagens.get(1).getIconWidth(), listaImagens.get(1).getIconHeight()+35);
-
-        Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 5);
+        Border border = BorderFactory.createLineBorder(Color.darkGray, 5);
         rotulo.setBorder(border);
+
+        rotulo.setVerticalAlignment(JLabel.CENTER);
+        rotulo.setHorizontalAlignment(JLabel.CENTER);
 
         //Panel
         JPanel painelCentral = new JPanel();
         painelCentral.setBackground(Color.lightGray);
-        painelCentral.setLayout(null);
+        painelCentral.setLayout(new BorderLayout());
 
         JPanel painelUp = new JPanel();
-        painelUp.setLayout(null);
-        painelUp.setBackground(Color.DARK_GRAY);
+        painelUp.setLayout(new BorderLayout());
+        painelUp.setBackground(Color.darkGray);
 
-        painelUp.setBounds(0, 0, 340, 30);
-        painelCentral.setBounds(0, painelUp.getHeight(), 340, 370);
+        painelUp.setPreferredSize(new Dimension(340, 30));
+        painelUp.setBorder(BorderFactory.createLineBorder(Color.darkGray, 5));
 
         //Button
         this.botao1 = new JButton("Anterior");
@@ -65,9 +68,9 @@ public class Janela extends JFrame{
             rotulo.setIcon(listaImagens.get(indiceAtual));
         });
         botao1.setFont(new Font("Arial", Font.BOLD, 11));
-        botao1.setBounds(5, 5, 80, 20);
+        botao1.setPreferredSize(new Dimension(80, 20));
         botao1.setBackground(Color.lightGray);
-        botao1.setForeground(Color.DARK_GRAY);
+        botao1.setForeground(Color.darkGray);
 
         this.botao2 = new JButton("Próxima");
         botao2.addActionListener(e -> {
@@ -75,15 +78,15 @@ public class Janela extends JFrame{
             rotulo.setIcon(listaImagens.get(indiceAtual));}
         );
         botao2.setFont(new Font("Arial", Font.BOLD, 11));
-        botao2.setBounds(240, 5, 80, 20);
+        botao2.setPreferredSize(new Dimension(80, 20));
         botao2.setBackground(Color.lightGray);
-        botao2.setForeground(Color.DARK_GRAY);
+        botao2.setForeground(Color.darkGray);
 
-        painelUp.add(botao1);
-        painelUp.add(botao2);
+        painelUp.add(botao1, BorderLayout.WEST);
+        painelUp.add(botao2, BorderLayout.EAST);
         painelCentral.add(rotulo);
-        this.add(painelUp);
-        this.add(painelCentral);
+        this.add(painelCentral, BorderLayout.CENTER);
+        this.add(painelUp, BorderLayout.NORTH);
         this.setVisible(true);
     }
 
