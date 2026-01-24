@@ -107,7 +107,9 @@ public class Login extends Conta implements ActionListener {
             char[] senhaArray = senha.getPassword();
             String textoSenha = new String(senhaArray);
 
-            if (textoEmail.equals("joao.bcsilva@upe.br") && textoSenha.equals("1234")) {
+            String[] info = getUser(textoEmail, textoSenha);
+
+            if (textoEmail.equalsIgnoreCase(info[0]) && textoSenha.equals(info[1])) {
                 this.frame.dispose();
 
                 if (this.quadro instanceof Janela) {
@@ -116,7 +118,7 @@ public class Login extends Conta implements ActionListener {
 
                 JOptionPane.showMessageDialog(null, "<html>Login efetuado com sucesso.<br>Bem-vindo!</html>");
             } else {
-                JOptionPane.showMessageDialog(null, "Email ou senha errado!");
+                JOptionPane.showMessageDialog(null, "Email ou senha errados!");
             }
         } else if (e.getSource() == botaoCancelar) {
             this.frame.dispose();

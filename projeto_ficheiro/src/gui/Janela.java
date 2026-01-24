@@ -8,10 +8,16 @@ import java.awt.event.ActionListener;
 public class Janela extends JFrame implements ActionListener {
     private JMenu menu;
     private JMenu opcoes;
+    private JMenu ajuda;
     private JMenu sair;
 
     private JMenuBar menuBar;
 
+    private JMenuItem registrar;
+    private JMenuItem pesquisar;
+    private JMenuItem listar;
+    private JMenuItem alterar;
+    private JMenuItem excluir;
     private JMenuItem confirmar;
     private JMenuItem menuLogin;
     private JMenuItem menuSignin;
@@ -42,6 +48,8 @@ public class Janela extends JFrame implements ActionListener {
         //Menu
         menuBar = new JMenuBar();
 
+        ajuda =  new JMenu("Ajuda");
+
         confirmar = new JMenuItem("Confirmar");
         confirmar.addActionListener(this);
 
@@ -51,6 +59,12 @@ public class Janela extends JFrame implements ActionListener {
         menuSignin = new JMenuItem("Signin");
         menuSignin.addActionListener(this);
 
+        registrar = new JMenuItem("Registrar");
+        alterar = new JMenuItem("Alterar");
+        pesquisar = new JMenuItem("Pesquisar");
+        listar = new JMenuItem("Listar");
+        excluir = new JMenuItem("Excluir");
+
         menu = new JMenu("Entrar");
         menu.add(menuLogin);
         menu.add(menuSignin);
@@ -58,8 +72,15 @@ public class Janela extends JFrame implements ActionListener {
         opcoes = new JMenu("Opções");
         sair = new JMenu("Sair");
 
+        opcoes.add(registrar);
+        opcoes.add(pesquisar);
+        opcoes.add(listar);
+        opcoes.add(alterar);
+        opcoes.add(excluir);
+
         menuBar.add(opcoes);
         opcoes.setEnabled(false);
+        menuBar.add(ajuda);
         menuBar.add(Box.createHorizontalGlue());
         menuBar.add(menu);
 
@@ -91,6 +112,8 @@ public class Janela extends JFrame implements ActionListener {
 
         opcoes.setEnabled(true);
         sair.add(confirmar);
+        sair.setEnabled(true);
+        sair.setVisible(true);
         menuBar.add(sair);
 
         getJMenuBar().revalidate();
