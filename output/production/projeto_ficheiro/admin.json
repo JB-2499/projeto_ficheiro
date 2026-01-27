@@ -1,2 +1,12 @@
-[{"nome":"jb", "email":"jb", "senha":"1"}]
-
+[
+  {
+    "nome":"jb",
+    "email":"jb",
+    "senha":"2499"
+  }
+  ,{
+    "nome":"Rafael Barreto",
+    "email":"rb@gmail.com",
+    "senha":"1234"
+  }
+]

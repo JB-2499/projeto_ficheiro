@@ -121,51 +121,62 @@ public class Signin extends Conta implements ActionListener, KeyListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == botaoCad) {
-            String[] info = getUser(email.getText(), senha.getText());
-
-            if (info[0].equals(email.getText())) {
-                JOptionPane.showMessageDialog(null, "Email fornecido já está em uso.", "Erro", JOptionPane.ERROR_MESSAGE);
+            if (email.getText().isEmpty() || senha.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             } else {
-                String linha;
-                List<String> linhas = new ArrayList<>();
+                String[] info = getUser(email.getText(), senha.getText());
 
-                try (BufferedReader br = new BufferedReader(new FileReader("projeto_ficheiro/user_information/admin.json"))) {
-                    while ((linha = br.readLine()) != null) {
-                        linhas.add(linha);
+                if (info[0].equals(email.getText())) {
+                    JOptionPane.showMessageDialog(null, "Email fornecido já está em uso.", "Erro", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    String linha;
+                    List<String> linhas = new ArrayList<>();
+
+                    try (BufferedReader br = new BufferedReader(new FileReader("projeto_ficheiro/user_information/admin.json"))) {
+                        while ((linha = br.readLine()) != null) {
+                            linhas.add(linha);
+                        }
+
+                        if (linhas.isEmpty()) {
+                            linhas.add("" +
+                                    "[\n" +
+                                    "{\n" +
+                                    "\"nome\":" + "\"" + nome.getText() + "\"" + ", " +
+                                    "\n\"email\":" + "\"" + email.getText() + "\"" + ", " +
+                                    "\n\"senha\":" + "\"" + senha.getText() + "\"" + "" +
+                                    "\n}" +
+                                    "\n]");
+                        } else if (linhas.size() == 1) {
+                            String ultimaLinha = linhas.get(0).substring(1);
+                            linhas.remove(0);
+
+                            linhas.add("[\n{\n\"nome\":" + "\"" + nome.getText() + "\"" + ", " + "\n\"email\":" + "\"" + email.getText() + "\"" + ", " + "\n\"senha\":" + "\"" + senha.getText() + "\"" + "\n},");
+                            linhas.add(ultimaLinha);
+                        } else {
+                            String ultimaLinha = linhas.get(linhas.size() - 1);
+                            linhas.remove(linhas.size() - 1);
+
+                            linhas.add("  ,{\n  \"nome\":" + "\"" + nome.getText() + "\"" + ", " + "\n  \"email\":" + "\"" + email.getText() + "\"" + ", " + "\n  \"senha\":" + "\"" + senha.getText() + "\"" + "\n  }");
+                            linhas.add(ultimaLinha);
+                        }
+
+                    } catch (IOException a) {
+                        throw new RuntimeException(a);
                     }
 
-                    if (linhas.isEmpty()) {
-                        linhas.add("[{\"nome\":" + "\"" + nome.getText() + "\"" + ", " + "\"email\":" + "\"" + email.getText() + "\"" + ", " + "\"senha\":" + "\"" + senha.getText() + "\"" + "}]");
-                    } else if (linhas.size() == 1) {
-                        String ultimaLinha = linhas.get(0).substring(1);
-                        linhas.remove(0);
+                    File file = new File("projeto_ficheiro/user_information/admin.json");
+                    file.delete();
 
-                        linhas.add("[{\"nome\":" + "\"" + nome.getText() + "\"" + ", " + "\"email\":" + "\"" + email.getText() + "\"" + ", " + "\"senha\":" + "\"" + senha.getText() + "\"" + "},");
-                        linhas.add(ultimaLinha);
-                    } else {
-                        String ultimaLinha = linhas.get(linhas.size() - 1);
-                        linhas.remove(linhas.size() - 1);
+                    File newFile = new File("projeto_ficheiro/user_information/admin.json");
 
-                        linhas.add("{\"nome\":" + "\"" + nome.getText() + "\"" + ", " + "\"email\":" + "\"" + email.getText() + "\"" + ", " + "\"senha\":" + "\"" + senha.getText() + "\"" + "},");
-                        linhas.add(ultimaLinha);
+                    try (BufferedWriter bf = new BufferedWriter(new FileWriter("projeto_ficheiro/user_information/admin.json"))) {
+                        for (String line : linhas) {
+                            bf.write(line);
+                            bf.write("\n");
+                        }
+                    } catch (IOException a) {
+                        throw new RuntimeException(a);
                     }
-
-                } catch (IOException a) {
-                    throw new RuntimeException(a);
-                }
-
-                File file = new File("projeto_ficheiro/user_information/admin.json");
-                file.delete();
-
-                File newFile = new File("projeto_ficheiro/user_information/admin.json");
-
-                try (BufferedWriter bf = new BufferedWriter(new FileWriter("projeto_ficheiro/user_information/admin.json"))) {
-                    for (String line : linhas) {
-                        bf.write(line);
-                        bf.write("\n");
-                    }
-                } catch (IOException a) {
-                    throw new RuntimeException(a);
                 }
             }
         } else if (e.getSource() == botaoCancelar) {

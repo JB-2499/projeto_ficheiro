@@ -102,23 +102,29 @@ public class Login extends Conta implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == botaoLog) {
-            String textoEmail = email.getText();
-
-            char[] senhaArray = senha.getPassword();
-            String textoSenha = new String(senhaArray);
-
-            String[] info = getUser(textoEmail, textoSenha);
-
-            if (textoEmail.equalsIgnoreCase(info[0]) && textoSenha.equals(info[1])) {
-                this.frame.dispose();
-
-                if (this.quadro instanceof Janela) {
-                    ((Janela) this.quadro).loginSucedido();
-                }
-
-                JOptionPane.showMessageDialog(null, "<html>Login efetuado com sucesso.<br>Bem-vindo!</html>");
+            if (email.getText().isEmpty() || senha.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "Email ou senha errados!");
+                String textoEmail = email.getText();
+
+                char[] senhaArray = senha.getPassword();
+                String textoSenha = new String(senhaArray);
+
+                String[] info = getUser(textoEmail, textoSenha);
+
+                if (info.length > 1 && (textoEmail.equalsIgnoreCase(info[0]) && textoSenha.equals(info[1]))) {
+                    this.frame.dispose();
+
+                    if (this.quadro instanceof Janela) {
+                        ((Janela) this.quadro).loginSucedido();
+                    }
+                    JOptionPane.showMessageDialog(null, "<html>Login efetuado com sucesso.<br>Bem-vindo!</html>");
+
+                } else if (info[0].equals("erro")) {
+                    JOptionPane.showMessageDialog(null, "Não há usuário registrado com o Email fornecido.", "Erro", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Email ou senha errados!");
+                }
             }
         } else if (e.getSource() == botaoCancelar) {
             this.frame.dispose();
