@@ -1,5 +1,8 @@
 package gui;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.*;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -120,60 +124,44 @@ public class Signin extends Conta implements ActionListener, KeyListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        String nomeStr = nome.getText();
+        String emailStr = email.getText();
+        char[] senhaChr = senha.getPassword();
+        String senhaStr = new String(senhaChr);
+
+
+
         if (e.getSource() == botaoCad) {
-            if (email.getText().isEmpty() || senha.getText().isEmpty()) {
+            if (emailStr.isEmpty() || senhaStr.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             } else {
-                String[] info = getUser(email.getText(), senha.getText());
+                String[] info = getUser(emailStr, senhaStr);
 
-                if (info[0].equals(email.getText())) {
+                if (info[0].equals(emailStr)) {
                     JOptionPane.showMessageDialog(null, "Email fornecido já está em uso.", "Erro", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    String linha;
-                    List<String> linhas = new ArrayList<>();
+                    List<Admin> admins = new ArrayList<>();
+                    Gson gson = new Gson();
+                    File arquivo = new File("projeto_ficheiro/user_information/admin.json");
 
-                    try (BufferedReader br = new BufferedReader(new FileReader("projeto_ficheiro/user_information/admin.json"))) {
-                        while ((linha = br.readLine()) != null) {
-                            linhas.add(linha);
+                    if (arquivo.exists()) {
+                        try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
+                            Type type = new TypeToken<List<Admin>>(){}.getType();
+                            List<Admin> lista = gson.fromJson(br.readLine(), type);
+
+                            if (lista != null) {
+                                admins = lista;
+                            }
+                        } catch (IOException a) {
+                            throw new RuntimeException(a);
                         }
-
-                        if (linhas.isEmpty()) {
-                            linhas.add("" +
-                                    "[\n" +
-                                    "{\n" +
-                                    "\"nome\":" + "\"" + nome.getText() + "\"" + ", " +
-                                    "\n\"email\":" + "\"" + email.getText() + "\"" + ", " +
-                                    "\n\"senha\":" + "\"" + senha.getText() + "\"" + "" +
-                                    "\n}" +
-                                    "\n]");
-                        } else if (linhas.size() == 1) {
-                            String ultimaLinha = linhas.get(0).substring(1);
-                            linhas.remove(0);
-
-                            linhas.add("[\n{\n\"nome\":" + "\"" + nome.getText() + "\"" + ", " + "\n\"email\":" + "\"" + email.getText() + "\"" + ", " + "\n\"senha\":" + "\"" + senha.getText() + "\"" + "\n},");
-                            linhas.add(ultimaLinha);
-                        } else {
-                            String ultimaLinha = linhas.get(linhas.size() - 1);
-                            linhas.remove(linhas.size() - 1);
-
-                            linhas.add("  ,{\n  \"nome\":" + "\"" + nome.getText() + "\"" + ", " + "\n  \"email\":" + "\"" + email.getText() + "\"" + ", " + "\n  \"senha\":" + "\"" + senha.getText() + "\"" + "\n  }");
-                            linhas.add(ultimaLinha);
-                        }
-
-                    } catch (IOException a) {
-                        throw new RuntimeException(a);
                     }
 
-                    File file = new File("projeto_ficheiro/user_information/admin.json");
-                    file.delete();
+                    admins.add(new Admin(nomeStr, emailStr, senhaStr));
 
-                    File newFile = new File("projeto_ficheiro/user_information/admin.json");
-
-                    try (BufferedWriter bf = new BufferedWriter(new FileWriter("projeto_ficheiro/user_information/admin.json"))) {
-                        for (String line : linhas) {
-                            bf.write(line);
-                            bf.write("\n");
-                        }
+                    try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivo))) {
+                         gson.toJson(admins, bw);
+                        JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!");
                     } catch (IOException a) {
                         throw new RuntimeException(a);
                     }

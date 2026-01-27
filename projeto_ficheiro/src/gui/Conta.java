@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -57,6 +58,10 @@ public class Conta {
 
             Type lista = new TypeToken<List<Admin>>(){}.getType();
             List<Admin> admins = gson.fromJson(br, lista);
+
+            if (admins == null) {
+                admins = new ArrayList<>();
+            }
 
             for (Admin admin : admins) {
                 if (admin.getEmail().equalsIgnoreCase(email) && admin.getSenha().equals(senha)) {

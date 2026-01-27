@@ -101,18 +101,18 @@ public class Login extends Conta implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        String emailStr = email.getText();
+        char[] senhaChr = senha.getPassword();
+        String senhaStr = new String(senhaChr);
+
         if (e.getSource() == botaoLog) {
-            if (email.getText().isEmpty() || senha.getText().isEmpty()) {
+            if (emailStr.isEmpty() || senhaStr.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             } else {
-                String textoEmail = email.getText();
 
-                char[] senhaArray = senha.getPassword();
-                String textoSenha = new String(senhaArray);
+                String[] info = getUser(emailStr, senhaStr);
 
-                String[] info = getUser(textoEmail, textoSenha);
-
-                if (info.length > 1 && (textoEmail.equalsIgnoreCase(info[0]) && textoSenha.equals(info[1]))) {
+                if (info.length > 1 && (emailStr.equalsIgnoreCase(info[0]) && senhaStr.equals(info[1]))) {
                     this.frame.dispose();
 
                     if (this.quadro instanceof Janela) {
