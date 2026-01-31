@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\João Barreto\IdeaProjects\projeto_ficheiro\output\artifacts\projeto_ficheiro_jar\projeto_ficheiro.jar</jar>
+  <outfile>C:\Users\João Barreto\IdeaProjects\projeto_ficheiro\Projeto Ficheiro2.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl></downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\Users\João Barreto\Downloads\jb.ico</icon>
+  <jre>
+    <path>%JAVA_HOME%;%PATH%</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion>21</minVersion>
+    <maxVersion></maxVersion>
+  </jre>
+  <messages>
+    <startupErr>An error occurred while starting the application.</startupErr>
+    <jreNotFoundErr>Esta aplicação requer o  Java 21 ou mais recente instalado! Adiquira-o aqui: https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe (sha256)</jreNotFoundErr>
+    <jreVersionErr>Esta aplicação requer o  Java 21 ou mais recente instalado! Adiquira-o aqui: https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe (sha256)</jreVersionErr>
+    <launcherErr>The registry refers to a nonexistent Java Runtime Environment installation or the runtime is corrupted.</launcherErr>
+    <instanceAlreadyExistsMsg>An application instance is already running.</instanceAlreadyExistsMsg>
+  </messages>
+</launch4jConfig>
