@@ -1,0 +1,1 @@
+start javaw -jar projeto_ficheiro.jar

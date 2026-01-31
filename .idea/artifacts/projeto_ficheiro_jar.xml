@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="projeto_ficheiro:jar">
+    <output-path>$PROJECT_DIR$/output/artifacts/projeto_ficheiro_jar</output-path>
+    <root id="archive" name="projeto_ficheiro.jar">
+      <element id="module-output" name="projeto_ficheiro" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/gson-2.10.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
