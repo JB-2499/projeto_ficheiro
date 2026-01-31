@@ -23,9 +23,10 @@ public class Pesquisa extends Conta implements ActionListener, KeyListener {
     private JButton botaoCancelar;
     private JButton botaoVoltar;
 
-    public Pesquisa (JFrame janela) {
+    public Pesquisa (JFrame janela, Ficheiro fx) {
         super(janela);
         this.frame.setTitle("Pesquisar");
+        this.ficheiro = fx;
 
         //region Panels
         JPanel panel1 = new JPanel();

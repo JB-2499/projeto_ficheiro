@@ -7,10 +7,21 @@ import java.lang.reflect.Type;
 import java.util.*;
 
 public class Ficheiro {
+    public String arquivo;
+
     public void registrar(String nomeStr, String emailStr, int idadeInt, int id) {
         List<String> linhas = new ArrayList<>();
+        File file = new File(arquivo);
 
-        try (BufferedReader br = new BufferedReader(new FileReader("user_information/dados.csv"))) {
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
             String linha;
             while ((linha = br.readLine()) != null) {
                 linhas.add(linha);
@@ -19,7 +30,7 @@ public class Ficheiro {
             throw new RuntimeException(a);
         }
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("user_information/dados.csv"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivo))) {
             for (String l : linhas) {
                 bw.write(l + "\n");
             }
@@ -30,8 +41,17 @@ public class Ficheiro {
     }
 
     public String[] pesquisar(int id) {
-        try (BufferedReader br = new BufferedReader(new FileReader("user_information/dados.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
             String linha;
+            File file = new File(arquivo);
+
+            if (!file.exists()) {
+                try {
+                    file.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 
             while ((linha = br.readLine()) != null) {
                 String[] linhas = linha.split(",");
@@ -46,7 +66,7 @@ public class Ficheiro {
         return new String[] {"Erro"};
     }
 
-    public List<String> ler(String arquivo) {
+    public List<String> ler() {
         List<String> dados = new ArrayList<>();
         File arquivoData = new File(arquivo);
 
@@ -74,7 +94,7 @@ public class Ficheiro {
     public void deletar(int id) {
         List<String> linhas = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader("user_information/dados.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
             String linha;
             while ((linha = br.readLine()) != null) {
                 String[] linhaSeparada = linha.split(",");
@@ -89,7 +109,7 @@ public class Ficheiro {
             throw new RuntimeException(a);
         }
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("user_information/dados.csv"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(arquivo))) {
             for (String l : linhas) {
                 bw.write(l + "\n");
             }
@@ -127,6 +147,43 @@ public class Ficheiro {
             } catch (IOException a) {
                 throw new RuntimeException(a);
             }
+        }
+    }
+
+    public void deletarAdmin(String email) {
+        List<Admin> admins = new ArrayList<>();
+        Gson gson = new Gson();
+        File file = new File("user_information/admin.json");
+
+        File dadosArquivo = new File(arquivo);
+        if (dadosArquivo.exists()) {
+            dadosArquivo.delete();
+        }
+
+        if (file.exists()) {
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                Type type = new TypeToken<List<Admin>>(){}.getType();
+                List<Admin> lista = gson.fromJson(br.readLine(), type);
+
+                if (lista != null) {
+                    admins = lista;
+                }
+            } catch (IOException a) {
+                throw new RuntimeException(a);
+            }
+        }
+
+        boolean encontrado = admins.removeIf(admin -> admin.getEmail().equalsIgnoreCase(email));
+
+        if (encontrado) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+                gson.toJson(admins, bw);
+                JOptionPane.showMessageDialog(null, "Conta deletada com sucesso!");
+            } catch (IOException a) {
+                throw new RuntimeException(a);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuário com este e-mail não encontrado.", "Aviso", JOptionPane.WARNING_MESSAGE);
         }
     }
 }

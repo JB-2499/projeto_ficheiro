@@ -11,9 +11,10 @@ public class Deletar extends Conta implements ActionListener, KeyListener {
     private JButton botaoConfirmar;
     private JButton botaoCancelar;
 
-    public Deletar (JFrame janela) {
+    public Deletar (JFrame janela, Ficheiro fx) {
         super(janela);
         this.frame.setTitle("Pesquisar");
+        this.ficheiro = fx;
 
         //region Panels
         JPanel panel1 = new JPanel();

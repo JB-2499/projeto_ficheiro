@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Conta {
     protected JFrame frame;
-    protected final Ficheiro ficheiro;
+    protected Ficheiro ficheiro;
 
     public Conta(JFrame janela) {
         frame = new JFrame("Conta");

@@ -4,8 +4,8 @@ import java.awt.*;
 import java.util.List;
 
 public class Tabela extends JFrame {
-    public Tabela(JFrame frame) {
-        Ficheiro ficheiro = new Ficheiro();
+
+    public Tabela(JFrame frame, Ficheiro  ficheiro) {
         setTitle("Tabela");
         setSize(400,360);
         setResizable(false);
@@ -14,7 +14,7 @@ public class Tabela extends JFrame {
         ImageIcon logo = new ImageIcon(getClass().getResource("/gui/Gear.png"));
         this.setIconImage(logo.getImage());
 
-        List<String> dados = ficheiro.ler("user_information/dados.csv");
+        List<String> dados = ficheiro.ler();
 
         String[] colunas = new String[] {"Nome","email","idade","id"};
         Object[][] data = new Object[dados.size()][colunas.length];

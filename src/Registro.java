@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -16,11 +17,12 @@ public class Registro extends Conta implements ActionListener, KeyListener {
     JTextField email;
     JTextField idade;
 
-    public Registro(JFrame janela) {
+    public Registro(JFrame janela, Ficheiro ficheiroMain) {
         super(janela);
         this.frame.setTitle("Registro");
         this.frame.setSize(400,290);
         this.frame.setLayout(null);
+        this.ficheiro = ficheiroMain;
 
         //region Panels
         JPanel panel1 = new JPanel();
@@ -104,6 +106,7 @@ public class Registro extends Conta implements ActionListener, KeyListener {
         panel2.add(textIdade);
         //endregion
 
+        this.frame.getRootPane().setDefaultButton(botaoCad);
         this.frame.setVisible(true);
     }
 
@@ -153,7 +156,16 @@ public class Registro extends Conta implements ActionListener, KeyListener {
     }
 
     public int gerarId() {
-        try (BufferedReader br = new BufferedReader(new FileReader("user_information/dados.csv"))) {
+        File file = new File(ficheiro.arquivo);
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        try (BufferedReader br = new BufferedReader(new FileReader(ficheiro.arquivo))) {
             String linha;
             int maior = 1;
 

@@ -6,23 +6,26 @@ import java.awt.event.ActionListener;
 public class Janela extends JFrame implements ActionListener {
     private JMenu menu;
     private JMenu opcoes;
-    private JMenu ajuda;
     private JMenu sair;
+    private JMenu menuDelete;
 
     private JMenuBar menuBar;
+
+    private Login login;
 
     private JMenuItem registrar;
     private JMenuItem pesquisar;
     private JMenuItem listar;
     private JMenuItem deletar;
     private JMenuItem confirmar;
+    private JMenuItem confirmar2;
     private JMenuItem menuLogin;
     private JMenuItem menuSignin;
 
     private Ficheiro ficheiro;
 
     public Janela() {
-        //Frame
+        //region Frame
         this.setTitle("Ficheiro");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(640, 360);
@@ -41,18 +44,21 @@ public class Janela extends JFrame implements ActionListener {
         ImageIcon background = new ImageIcon(getClass().getResource("/gui/Background.png"));
 
         this.getContentPane().setBackground(Color.lightGray);
+        //endregion
 
-        //Label
+        //region Label
         JLabel label = new JLabel(background);
         this.add(label, BorderLayout.CENTER);
+        //endregion
 
-        //Menu
+        //region Menu
         menuBar = new JMenuBar();
-
-        ajuda =  new JMenu("Ajuda");
 
         confirmar = new JMenuItem("Sair");
         confirmar.addActionListener(this);
+
+        confirmar2 = new JMenuItem("Confirmar");
+        confirmar2.addActionListener(this);
 
         menuLogin = new JMenuItem("Login");
         menuLogin.addActionListener(this);
@@ -78,6 +84,7 @@ public class Janela extends JFrame implements ActionListener {
 
         opcoes = new JMenu("Opções");
         sair = new JMenu();
+        menuDelete = new JMenu("Deletar conta");
 
         opcoes.add(registrar);
         opcoes.add(pesquisar);
@@ -86,9 +93,9 @@ public class Janela extends JFrame implements ActionListener {
 
         menuBar.add(opcoes);
         opcoes.setEnabled(false);
-        menuBar.add(ajuda);
         menuBar.add(Box.createHorizontalGlue());
         menuBar.add(menu);
+        //endregion
 
         this.setJMenuBar(menuBar);
         this.setVisible(true);
@@ -97,7 +104,7 @@ public class Janela extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == menuLogin) {
-            Login login = new Login(this);
+            login = new Login(this, ficheiro);
         } else if (e.getSource() == menuSignin) {
             Signin signin = new Signin(this);
         } else if (e.getSource() == confirmar) {
@@ -105,19 +112,25 @@ public class Janela extends JFrame implements ActionListener {
             sair.setEnabled(false);
             sair.setVisible(false);
 
+            menuDelete.setEnabled(false);
+            menuDelete.setVisible(false);
+
             menu.setEnabled(true);
             menu.setVisible(true);
 
             JOptionPane.showMessageDialog(null, "Sessão encerrada.", "Logout", JOptionPane.WARNING_MESSAGE);
         } else if (e.getSource() == listar) {
-            Tabela tabela = new Tabela(this);
+            Tabela tabela = new Tabela(this, ficheiro);
 
         } else if (e.getSource() == registrar) {
-            Registro registro = new Registro(this);
+            Registro registro = new Registro(this, ficheiro);
         } else if (e.getSource() == pesquisar) {
-            Pesquisa pesquisa = new Pesquisa(this);
+            Pesquisa pesquisa = new Pesquisa(this, ficheiro);
         } else if (e.getSource() == deletar) {
-            Deletar deletar = new Deletar(this);
+            Deletar deletar = new Deletar(this, ficheiro);
+        } else if (e.getSource() == confirmar2) {
+            confirmar.doClick();
+            login.deletar();
         }
     }
 
@@ -125,11 +138,21 @@ public class Janela extends JFrame implements ActionListener {
         menu.setEnabled(false);
         menu.setVisible(false);
 
+        menuDelete.add(confirmar);
+        menuDelete.setText("Deletar conta");
+        menuDelete.add(confirmar2);
+        menuDelete.setEnabled(true);
+        menuDelete.setVisible(true);
+
         opcoes.setEnabled(true);
         sair.add(confirmar);
         sair.setText(nome);
         sair.setEnabled(true);
         sair.setVisible(true);
+
+        ficheiro.arquivo = "user_information/" + nome.trim().toLowerCase() + ".csv";
+
+        menuBar.add(menuDelete);
         menuBar.add(sair);
 
         getJMenuBar().revalidate();
