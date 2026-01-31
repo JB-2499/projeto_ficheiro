@@ -1,20 +1,21 @@
-package gui;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class Login extends Conta implements ActionListener {
-    JButton botaoLog;
+public class Signin extends Conta implements ActionListener, KeyListener {
+    JButton botaoCad;
     JButton botaoCancelar;
-    JFrame quadro;
+
+    JTextField nome;
     JTextField email;
     JPasswordField senha;
 
-    public Login(JFrame janela) {
+    public Signin(JFrame janela) {
         super(janela);
-        quadro = janela;
+        this.frame.setSize(400,290);
         this.frame.setLayout(null);
 
         //Panels
@@ -33,56 +34,70 @@ public class Login extends Conta implements ActionListener {
             panel2.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 5));
             panel2.setOpaque(true);
             panel2.setLayout(null);
-            panel2.setBounds(0, 40, 384, 191);
+            panel2.setBounds(0, 40, 384, 211);
         }
 
         //TextFields
+        nome = new JTextField();
+        nome.setBounds(90 , 20, 200, 25);
+        nome.setFont(new Font("Arial", Font.BOLD, 15));
+        panel2.add(nome);
+
         email = new JTextField();
-        email.setBounds(90 , 20, 200, 25);
+        email.setBounds(90 , 60, 200, 25);
         email.setFont(new Font("Arial", Font.BOLD, 15));
         panel2.add(email);
 
         senha = new JPasswordField();
-        senha.setBounds(90 , 60, 200, 25);
+        senha.setBounds(90 , 100, 200, 25);
         panel2.add(senha);
 
         //Buttons
-        botaoLog = new JButton("Login");
+        botaoCad = new JButton("Cadastrar");
         {
-            botaoLog.setBackground(Color.lightGray);
-            botaoLog.setBounds(100, 140, 80, 30);
-            botaoLog.setFont(new Font("Arial", Font.BOLD, 10));
-            botaoLog.addActionListener(this);
-            botaoLog.setFocusable(false);
-            panel2.add(botaoLog);
+            botaoCad.setBackground(Color.lightGray);
+            botaoCad.setBounds(100, 160, 80, 30);
+            botaoCad.setFont(new Font("Arial", Font.BOLD, 10));
+            botaoCad.addActionListener(this);
+            botaoCad.addKeyListener(this);
+            botaoCad.setFocusable(false);
+            panel2.add(botaoCad);
         }
 
         botaoCancelar = new JButton("Cancelar");
         {
             botaoCancelar.setBackground(Color.lightGray);
             botaoCancelar.setFont(new Font("Arial", Font.BOLD, 10));
-            botaoCancelar.setBounds(200, 140, 80, 30);
+            botaoCancelar.setBounds(200, 160, 80, 30);
             botaoCancelar.addActionListener(this);
             botaoCancelar.setFocusable(false);
             panel2.add(botaoCancelar);
         }
 
         //Labels
-        JLabel titulo = new JLabel("Bem-vindo de volta!");
+        JLabel titulo = new JLabel("Complete o cadastro para prosseguir");
         {
-            titulo.setFont(new Font("Arial", Font.BOLD, 25));
+            titulo.setFont(new Font("Arial", Font.BOLD, 18));
             titulo.setBackground(Color.darkGray);
             titulo.setForeground(Color.white);
             titulo.setOpaque(true);
-            titulo.setBounds(70, 4, 240, 30);
+            titulo.setBounds(27, 4, 350, 30);
             panel1.add(titulo);
+        }
+
+        JLabel textNam = new JLabel("Nome:");
+        {
+            textNam.setFont(new Font("Arial", Font.BOLD, 15));
+            textNam.setOpaque(true);
+            textNam.setBounds(44, 20, 45, 25);
+            panel2.add(textNam);
         }
 
         JLabel textLog = new JLabel("Email:");
         {
             textLog.setFont(new Font("Arial", Font.BOLD, 15));
             textLog.setOpaque(true);
-            textLog.setBounds(44, 20, 45, 25);
+            textLog.setBounds(44, 60, 45, 25);
             panel2.add(textLog);
         }
 
@@ -90,10 +105,11 @@ public class Login extends Conta implements ActionListener {
         {
             textSenha.setFont(new Font("Arial", Font.BOLD, 15));
             textSenha.setOpaque(true);
-            textSenha.setBounds(39, 60, 50, 25);
+            textSenha.setBounds(39, 100, 50, 25);
             panel2.add(textSenha);
         }
 
+        this.frame.getRootPane().setDefaultButton(botaoCad);
         this.frame.add(panel1);
         this.frame.add(panel2);
         this.frame.setVisible(true);
@@ -101,33 +117,38 @@ public class Login extends Conta implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        String nomeStr = nome.getText();
         String emailStr = email.getText();
         char[] senhaChr = senha.getPassword();
         String senhaStr = new String(senhaChr);
 
-        if (e.getSource() == botaoLog) {
+
+
+        if (e.getSource() == botaoCad) {
             if (emailStr.isEmpty() || senhaStr.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Erro", JOptionPane.ERROR_MESSAGE);
             } else {
-
                 String[] info = getUser(emailStr, senhaStr);
 
-                if (info.length > 1 && (emailStr.equalsIgnoreCase(info[0]) && senhaStr.equals(info[1]))) {
-                    this.frame.dispose();
-
-                    if (this.quadro instanceof Janela) {
-                        ((Janela) this.quadro).loginSucedido();
-                    }
-                    JOptionPane.showMessageDialog(null, "<html>Login efetuado com sucesso.<br>Bem-vindo!</html>");
-
-                } else if (info[0].equals("erro")) {
-                    JOptionPane.showMessageDialog(null, "Não há usuário registrado com o Email fornecido.", "Erro", JOptionPane.ERROR_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Email ou senha errados!");
-                }
+                ficheiro.registrarAdmin(nomeStr, emailStr, senhaStr, info);
             }
+            this.frame.dispose();
+
         } else if (e.getSource() == botaoCancelar) {
             this.frame.dispose();
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }

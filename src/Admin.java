@@ -1,5 +1,3 @@
-package gui;
-
 public class Admin {
     private String nome;
     private String email;
@@ -17,5 +15,9 @@ public class Admin {
 
     public String getSenha() {
         return senha;
+    }
+
+    public String getNome() {
+        return nome;
     }
 }

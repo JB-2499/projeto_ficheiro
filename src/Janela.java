@@ -1,5 +1,3 @@
-package gui;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,11 +14,12 @@ public class Janela extends JFrame implements ActionListener {
     private JMenuItem registrar;
     private JMenuItem pesquisar;
     private JMenuItem listar;
-    private JMenuItem alterar;
-    private JMenuItem excluir;
+    private JMenuItem deletar;
     private JMenuItem confirmar;
     private JMenuItem menuLogin;
     private JMenuItem menuSignin;
+
+    private Ficheiro ficheiro;
 
     public Janela() {
         //Frame
@@ -33,6 +32,8 @@ public class Janela extends JFrame implements ActionListener {
         this.setFocusable(true);
         this.requestFocusInWindow();
         this.setLocationRelativeTo(null);
+
+        this.ficheiro = new Ficheiro();
 
         ImageIcon icon = new ImageIcon(getClass().getResource("/gui/logo.png"));
         this.setIconImage(icon.getImage());
@@ -50,7 +51,7 @@ public class Janela extends JFrame implements ActionListener {
 
         ajuda =  new JMenu("Ajuda");
 
-        confirmar = new JMenuItem("Confirmar");
+        confirmar = new JMenuItem("Sair");
         confirmar.addActionListener(this);
 
         menuLogin = new JMenuItem("Login");
@@ -60,23 +61,28 @@ public class Janela extends JFrame implements ActionListener {
         menuSignin.addActionListener(this);
 
         registrar = new JMenuItem("Registrar");
-        alterar = new JMenuItem("Alterar");
+        registrar.addActionListener(this);
+
         pesquisar = new JMenuItem("Pesquisar");
+        pesquisar.addActionListener(this);
+
         listar = new JMenuItem("Listar");
-        excluir = new JMenuItem("Excluir");
+        listar.addActionListener(this);
+
+        deletar = new JMenuItem("Deletar");
+        deletar.addActionListener(this);
 
         menu = new JMenu("Entrar");
         menu.add(menuLogin);
         menu.add(menuSignin);
 
         opcoes = new JMenu("Opções");
-        sair = new JMenu("Sair");
+        sair = new JMenu();
 
         opcoes.add(registrar);
         opcoes.add(pesquisar);
         opcoes.add(listar);
-        opcoes.add(alterar);
-        opcoes.add(excluir);
+        opcoes.add(deletar);
 
         menuBar.add(opcoes);
         opcoes.setEnabled(false);
@@ -103,15 +109,25 @@ public class Janela extends JFrame implements ActionListener {
             menu.setVisible(true);
 
             JOptionPane.showMessageDialog(null, "Sessão encerrada.", "Logout", JOptionPane.WARNING_MESSAGE);
+        } else if (e.getSource() == listar) {
+            Tabela tabela = new Tabela(this);
+
+        } else if (e.getSource() == registrar) {
+            Registro registro = new Registro(this);
+        } else if (e.getSource() == pesquisar) {
+            Pesquisa pesquisa = new Pesquisa(this);
+        } else if (e.getSource() == deletar) {
+            Deletar deletar = new Deletar(this);
         }
     }
 
-    public void loginSucedido() {
+    public void loginSucedido(String nome) {
         menu.setEnabled(false);
         menu.setVisible(false);
 
         opcoes.setEnabled(true);
         sair.add(confirmar);
+        sair.setText(nome);
         sair.setEnabled(true);
         sair.setVisible(true);
         menuBar.add(sair);
