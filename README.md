@@ -14,8 +14,31 @@ sobre a linguagem Java.
 
 # ⚙️Funcionamento
 O código pode ser executado tanto da maneira tradicional, por meio de um compilador, quanto 
-clicando no arquivo executável "Projeto ficheiro.exe", contido no diretório "output/artifacts/projeto_ficheiro_jar".<br>
+clicando no arquivo executável "Projeto ficheiro.exe", contido no diretório "output/artifacts/projeto_ficheiro_jar". 
+Para baixar o código no computador, abra o prompt de comando e dê os seguintes comandos:
 
+<br>
+
+abrir a pasta da área de trabalho
+~~~~html
+cd desktop
+~~~~
+
+criar pasta para o projeto
+~~~~html
+mkdir projeto_ficheiro
+~~~~
+
+abrir pasta onde o projeto será baixado
+~~~~html
+cd projeto_ficheiro
+~~~~
+
+baixar projeto
+~~~~html
+git clone "https://github.com/JB-2499/projeto_ficheiro"
+~~~~
+<br>
 Ao rodar o programa, pode-se observar que as opções de CRUD do ficheiro estão desabilitadas. 
 Isso ocorre pois é necessário primeiramente que o usuário faça login ou crie uma conta como 
 administrador de ficheiro. Ao criar uma conta e/ou fazer login, é fornecido um ficheiro privado 
