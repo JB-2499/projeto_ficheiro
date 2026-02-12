@@ -4,7 +4,7 @@ registradas e gerenciadas pessoas. O projeto foi desenvolvido com o intuito de c
 capaz de realizar as funções de CRUD com permanência de dados e com uma interface gráfica amigável 
 ao usuário, tudo isso com o objetivo final ser um desafio para por em prática meus conhecimentos 
 sobre a linguagem Java.
->Status do projeto: fizalizado, com a possibilidade de reabertura para melhorias futuras.
+>Status do projeto: fizalizado, com a possibilidade de eventual reabertura para melhorias futuras.
 
 > versão atual do programa: 2.0
 
