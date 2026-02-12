@@ -52,6 +52,13 @@ src | Contém todas as classes do programa e a pasta "/gui", onde ficam armazena
 user_information | aqui ficam armazenados os arquivos ".csv" que armazenam as informações do ficheiro de cada administrador, e o arquivo "admin.json", onde ficam registrados os dados da conta dos administradores.
 <br>
 
+# 🛠️Requisitos
+Para que o programa seja executado com sucesso, devem estar instalados no computador os seguintes componentes de software:
+- Versão do Java JDK 21 ou superior.
+- Bibliotéca Gson para o Java.
+- Bibliotéca Swing para o Java.
+<br>
+
 # 👨‍💻Alterações em relação à versão anterior:
 - Implementação completa de uma interface gráfica amigável ao usuário.
 - Implementação do sistema de administradores e ficheiros particulares.
