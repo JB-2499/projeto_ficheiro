@@ -43,11 +43,18 @@ Limpar registro: | Para apagar completamente um ficheiro, basta deletar a conta 
 |  |--user_information
 
 ~~~~
+diretório | função
+----------|-------
+projeto_ficheiro | Contém todos os arquivos e diretório necessários para rodar o programa.
+old_versions | Contém a versão 1.0 e as betas do programa, que ainda não possuiam interface gráfica e contas de administrador, apenas as funcionalidades de CRUD de um único ficheiro.
+output/artifacts/projeto_ficheiro_jar | Contém o ".jar" do programa, o arquivo "starter.bat", que inicia o programa sem a necessidade de abrir o compilador, e a versão executável do programa.
+src | Contém todas as classes do programa e a pasta "/gui", onde ficam armazenados os arquivos de imagem utilizados pela interface.
+user_information | aqui ficam armazenados os arquivos ".csv" que armazenam as informações do ficheiro de cada administrador, e o arquivo "admin.json", onde ficam registrados os dados da conta dos administradores.
 <br>
 
 # 👨‍💻Alterações em relação à versão anterior:
-Correção dos bugs que impediam o cadastro e a alteração dos dados do usuário.
-
+- Implementação completa de uma interface gráfica amigável ao usuário.
+- Implementação do sistema de administradores e ficheiros particulares.
 <br>
 
 # 💾Melhorias planejadas para uma eventual reabertura do projeto:
