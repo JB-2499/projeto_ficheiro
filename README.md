@@ -44,7 +44,9 @@ Isso ocorre pois é necessário primeiramente que o usuário faça login ou crie
 administrador de ficheiro. Ao criar uma conta e/ou fazer login, é fornecido um ficheiro privado 
 à conta, que só pode ser acessado no programa pelo usuário proprietário, e são liberadas as funções 
 de CRUD.
-No programa existem as seguintes funcionalidades:
+No programa existem as seguintes funcionalidades: 
+
+<br>
 
 Função    | O que faz
 ----------|-----------
