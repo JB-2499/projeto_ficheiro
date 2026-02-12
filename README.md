@@ -29,11 +29,18 @@ Deletar:  |Para remover uma pessoa do registro, selecione a opção "deletar", f
 Limpar registro: | Para apagar completamente um ficheiro, basta deletar a conta de administrador correspondente, que é possível logando na conta e clicando no botão "deletar conta", assim, todos os dados do administrador são apagados e seu ficheiro é deletado.
 <br>
   
-# 🗂️Estrutura do projeto
+# 🗂️Estrutura de diretórios
 ~~~~html
 
 |--projeto_ficheiro
-|  |---src
+|  |--old_versions
+|  |--output
+|  |   |--artifacts
+|  |   |   |--projeto_ficheiro_jar
+|  |   |--production
+|  |--src
+|  |   |--gui
+|  |--user_information
 
 ~~~~
 <br>
