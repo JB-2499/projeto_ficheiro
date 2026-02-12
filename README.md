@@ -1,9 +1,9 @@
 # Projeto ficheiro
-Este programa consiste em um sistema de gerenciamento de ficheiros. Para utilizá-lo, cria-se uma conta de administrador de ficheiro, 
-que recebe uma tabela própria para ser utilizada. No sistema é possível registrar pessoas, atualizar seus dados diretamente na tabela, 
-buscar dados de uma pessoa pelo Id, vizualizar a tabela e deletar uma pessoa do registro. Para deletar a tabela inteira, pode-se deletar 
-a conta de administrador ou deletar diretamente o arquivo .csv com o nome do usuário, onde após isso será criada uma nova automaticamente 
-ao registrar uma pessoa.
+Este programa consiste em um sistema de gerenciamento de ficheiros, onde em cada ficheiro podem ser 
+registradas e gerenciadas pessoas. O projeto foi desenvolvido com o intuito de criar um sistema 
+capaz de realizar as funções de CRUD com permanência de dados e que possuísse uma interface gráfica 
+amigável ao usuário, tudo isso com o objetivo final ser um desafio para por em prática meus conhecimentos 
+sobre a linguagem Java.
 
 > versão atual do programa: 2.0
 
