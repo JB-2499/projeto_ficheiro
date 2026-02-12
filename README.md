@@ -13,6 +13,9 @@ sobre a linguagem Java.
 <br>
 
 # ⚙️Funcionamento
+O código pode ser executado tanto da maneira tradicional, por meio de um compilador, quanto 
+clicando no arquivo executável "Projeto ficheiro.exe", contido no diretório "output/artifacts/projeto_ficheiro_jar".<br>
+
 Ao rodar o programa, pode-se observar que as opções de CRUD do ficheiro estão desabilitadas. 
 Isso ocorre pois é necessário primeiramente que o usuário faça login ou crie uma conta como 
 administrador de ficheiro. Ao criar uma conta e/ou fazer login, é fornecido um ficheiro privado 
