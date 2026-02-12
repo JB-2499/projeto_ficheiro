@@ -1,4 +1,5 @@
 # Projeto ficheiro
+## Por: João Barreto
 Este programa consiste em um sistema de gerenciamento de ficheiros, onde em cada ficheiro podem ser 
 registradas e gerenciadas pessoas. O projeto foi desenvolvido com o intuito de criar um sistema 
 capaz de realizar as funções de CRUD com permanência de dados e com uma interface gráfica amigável 
