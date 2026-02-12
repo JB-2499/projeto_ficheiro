@@ -58,6 +58,5 @@ user_information | aqui ficam armazenados os arquivos ".csv" que armazenam as in
 <br>
 
 # 💾Melhorias planejadas para uma eventual reabertura do projeto:
-Criação de uma interface visual para o uso do programa.
-
-Alteração do formato de arquivo utilizado para armazenamento de dados, de CSV para JSON.
+- Aprimoramento da interface gráfica.
+- Adição de mais funcionalidades, como buscar pessoas por Email ou nome.
