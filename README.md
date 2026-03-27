@@ -1,4 +1,4 @@
-[Português](#projeto-ficheiro) | [English](#file-manager-project)
+[English](#file-manager-project)
 
 # Projeto ficheiro
 ## Por: João Barreto
@@ -99,5 +99,7 @@ Para que o programa seja executado com sucesso, devem estar instalados no comput
 - Aprimoramento da interface gráfica.
 - Adição de mais funcionalidades, como buscar pessoas por Email ou nome.
 <br><br>
+
+[Português](#projeto-ficheiro)
 
 # File manager project
