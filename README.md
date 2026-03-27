@@ -1,6 +1,6 @@
-[Português](#-Projeto_ficheiro) | [English](#-File_manager_project)
+[Português](#projeto-ficheiro) | [English](#file-manager-project)
 
-# Projeto_ficheiro
+# Projeto ficheiro
 ## Por: João Barreto
 Este programa consiste em um sistema de gerenciamento de ficheiros, onde em cada ficheiro podem ser 
 registradas e gerenciadas pessoas. O projeto foi desenvolvido com o intuito de criar um sistema 
@@ -100,4 +100,4 @@ Para que o programa seja executado com sucesso, devem estar instalados no comput
 - Adição de mais funcionalidades, como buscar pessoas por Email ou nome.
 <br><br>
 
-# File_manager_project
+# File manager project
