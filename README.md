@@ -1,4 +1,4 @@
-[Português](#-Projeto_ficheiro)
+[Português](#-Projeto_ficheiro) | [English](#-File_manager_project)
 
 # Projeto_ficheiro
 ## Por: João Barreto
@@ -98,3 +98,6 @@ Para que o programa seja executado com sucesso, devem estar instalados no comput
 # 💾Melhorias planejadas para uma eventual reabertura do projeto:
 - Aprimoramento da interface gráfica.
 - Adição de mais funcionalidades, como buscar pessoas por Email ou nome.
+<br><br>
+
+# File_manager_project
