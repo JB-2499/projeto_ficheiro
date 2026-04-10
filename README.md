@@ -1,4 +1,4 @@
-[English](#file-manager-project)
+[English](#registry-manager-project)
 
 # Projeto ficheiro
 ## Por: João Barreto
@@ -9,7 +9,7 @@ ao usuário, tudo isso com o objetivo final ser um desafio para por em prática 
 sobre a linguagem Java.
 >Status do projeto: fizalizado, com a possibilidade de eventual reabertura para melhorias futuras.
 
-> versão atual do programa: 2.0
+> versão atual do programa: 1.0
 
 > Versão Java: JDK 21
 <br>
@@ -102,4 +102,19 @@ Para que o programa seja executado com sucesso, devem estar instalados no comput
 
 [Português](#projeto-ficheiro)
 
-# File manager project
+# Registry manager project
+## By: João Barreto
+
+This program consists in a registry management system, where in each registry it´s possible to 
+register and manage individuals. The final goal of the project was to develop a system capable 
+of performing all of the basic operations of data management, Create, Read, Update and Delete 
+(CRUD), and store the data in the machine, so it can be used again when needed (data permanence). 
+Also, the system should have a "User-Friendly" interface. I created this project to be a practical 
+challenge to apply my knowledge about the Java language, and improve my programming skills.
+
+>Project status: Completed, with the possibility of an eventual re-opening for future improvement.
+
+>Latest program version: 1.0
+
+> Java version: JDK 21
+<br>
