@@ -21,26 +21,22 @@ Para baixar o código no computador, abra o prompt de comando e dê os seguintes
 
 <br>
 
-abrir a pasta da área de trabalho
-~~~~html
-cd desktop
-~~~~
-
-criar pasta para o projeto
+Criar pasta para o projeto:
 ~~~~html
 mkdir projeto_ficheiro
 ~~~~
 
-abrir pasta onde o projeto será baixado
+Abrir pasta onde o projeto será baixado:
 ~~~~html
 cd projeto_ficheiro
 ~~~~
 
-baixar projeto
+Baixar projeto:
 ~~~~html
 git clone "https://github.com/JB-2499/projeto_ficheiro"
 ~~~~
 <br>
+
 Ao rodar o programa, pode-se observar que as opções de CRUD do ficheiro estão desabilitadas. 
 Isso ocorre pois é necessário primeiramente que o usuário faça login ou crie uma conta como 
 administrador de ficheiro. Ao criar uma conta e/ou fazer login, é fornecido um ficheiro privado 
@@ -117,4 +113,46 @@ challenge to apply my knowledge about the Java language, and improve my programm
 >Latest program version: 1.0
 
 > Java version: JDK 21
+<br>
+
+# ⚙️Making it work
+The code can be executed both in the traditional way, by using a compilator, and by using the executable 
+file named "Projeto ficheiro.exe", contained in the following directory: "output/artifacts/projeto_ficheiro_jar".
+To download the code in your PC, open the command prompt by pressing "Win" + "r", writing "cmd" and pressing "enter",
+then, copy and paste each of the commands below in the prompt.
+
+<br>
+Create the directory for cloning the repository:
+~~~~html
+mkdir projeto_ficheiro
+~~~~
+
+Open the directory:
+~~~~html
+cd projeto_ficheiro
+~~~~
+
+Download the project:
+~~~~html
+git clone "https://github.com/JB-2499/projeto_ficheiro"
+~~~~
+<br>
+
+When running the program, you may observe that all of the actions are disabled. This happens 
+because it's required for the user to login to the system, or register a new account if needeed. 
+When the user create a new account and/or enter the system, a new proprietary registry is assigned 
+to them, wich can only be acessed by it's respective owner, and only then, the management functions 
+become available.
+The program can execute the functions listed below:
+
+<br>
+
+Function    | What it does
+------------|-------------
+Register:   | When you select this option, a new window is opened, where the user must inform the required information about the person wich will be registered. After that, when the "confirm" button is clicked, the person will be given an unique Id and registered in the system.
+Search:     | Returns the all the information about a person, wich is searched by it's Id.
+List:       | Opens the table containing all the registered people.
+Update:     | A person's data can be updated directly on the table opened in the function above, except by the "Id" column. This happens because "Id" is the primary key of each person, and therefore it's used by the system to reference each register.
+Delete:     | To remove a specific person from the registry, the user must provide it's respective Id number and then click the "Confirm" button.
+Clean Registry: | To delete the entire registry, the user must delete their account, wich is possible by loging in the system and clicking in the button labeled "delete account", then, all of the data of the user is deleted, and their proprietary registry is deleted.
 <br>
