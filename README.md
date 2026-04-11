@@ -115,7 +115,7 @@ challenge to apply my knowledge about the Java language, and improve my programm
 > Java version: JDK 21
 <br>
 
-# ⚙️Making it work
+# ⚙️How it works
 The code can be executed both in the traditional way, by using a compilator, and by using the executable 
 file named "Projeto ficheiro.exe", contained in the following directory: "output/artifacts/projeto_ficheiro_jar".
 To download the code in your PC, open the command prompt by pressing "Win" + "r", writing "cmd" and pressing "enter",
@@ -156,4 +156,35 @@ List:       | Opens the table containing all the registered people.
 Update:     | A person's data can be updated directly on the table opened in the function above, except by the "Id" column. This happens because "Id" is the primary key of each person, and therefore it's used by the system to reference each register.
 Delete:     | To remove a specific person from the registry, the user must provide it's respective Id number and then click the "Confirm" button.
 Clean Registry: | To delete the entire registry, the user must delete their account, wich is possible by loging in the system and clicking in the button labeled "delete account", then, all of the data of the user is deleted, and their proprietary registry is deleted.
+<br>
+
+# 🗂️Directory hierarchy
+~~~~html
+
+|--projeto_ficheiro
+|  |--old_versions
+|  |--output
+|  |   |--artifacts
+|  |   |   |--projeto_ficheiro_jar
+|  |   |--production
+|  |--src
+|  |   |--gui
+|  |--user_information
+
+~~~~
+directory | function
+----------|-------
+projeto_ficheiro | Contains all the files needed to run the program.
+old_versions | contains the beta and legacy versions of the system, wich are far more basic, lacking a proper administrations system and graphic interface for example, just the most basic functions.
+output/artifacts/projeto_ficheiro_jar | Contains the program's ".jar", the "starter.bat", wich starts the program without having to open the compilator, and the executable file for the system.
+src | Here are stored all the classes for the program and the "/gui" directory, that's where the image files used in the interface are stored.
+user_information | Here are stored all the ".csv" files, in wich every registry is kept, and the "admin.json" file, wich stores account information for the administrators.
+<br>
+
+# 🛠️Requirements
+For the Java program to be sucessfully executed, the following software
+Para que o programa seja executado com sucesso, devem estar instalados no computador os seguintes componentes de software:
+- Versão do Java JDK 21 ou superior.
+- Bibliotéca Gson para o Java.
+- Bibliotéca Swing para o Java.
 <br>
