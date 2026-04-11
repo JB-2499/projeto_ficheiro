@@ -123,6 +123,7 @@ then, copy and paste each of the commands below in the prompt.
 
 <br>
 Create the directory for cloning the repository:
+
 ~~~~html
 mkdir projeto_ficheiro
 ~~~~
