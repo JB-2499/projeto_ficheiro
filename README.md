@@ -94,6 +94,7 @@ Para que o programa seja executado com sucesso, devem estar instalados no comput
 # 💾Melhorias planejadas para uma eventual reabertura do projeto:
 - Aprimoramento da interface gráfica.
 - Adição de mais funcionalidades, como buscar pessoas por Email ou nome.
+- Adição de um sisteam de detecção automática de idioma, que altera o idioma do sistema de acordo com o pc do usuário.
 <br><br>
 
 [Português](#projeto-ficheiro)
@@ -182,9 +183,18 @@ user_information | Here are stored all the ".csv" files, in wich every registry 
 <br>
 
 # 🛠️Requirements
-For the Java program to be sucessfully executed, the following software
-Para que o programa seja executado com sucesso, devem estar instalados no computador os seguintes componentes de software:
-- Versão do Java JDK 21 ou superior.
-- Bibliotéca Gson para o Java.
-- Bibliotéca Swing para o Java.
+For the Java program to be sucessfully executed, the following software components must be installed in your machine:
+- Java (JDK 21 or newer).
+- Gson library for Java.
+- Swing library for Java.
 <br>
+
+# 👨‍💻Differences from the last version
+- Implementation of a user friendly graphic interface.
+- Implementation of the administrator and proprietary registry system.
+<br>
+
+# 💾Melhorias planejadas para uma eventual reabertura do projeto:
+- Improvement of the GUI.
+- Addition of more functionalities, such as searching users by email or name.
+- Addition of an automatic language detection system, wich should change the program's language depending on the user's pc's utilized language.
