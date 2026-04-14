@@ -194,7 +194,7 @@ For the Java program to be sucessfully executed, the following software componen
 - Implementation of the administrator and proprietary registry system.
 <br>
 
-# 💾Melhorias planejadas para uma eventual reabertura do projeto:
+# 💾Planned improvements for the next release
 - Improvement of the GUI.
 - Addition of more functionalities, such as searching users by email or name.
 - Addition of an automatic language detection system, wich should change the program's language depending on the user's pc's utilized language.
